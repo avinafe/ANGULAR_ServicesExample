@@ -1,0 +1,12 @@
+<form>
+    <label for="Plate Number">Input your licence plate number: </label>
+    <input [(ngModel)]="plateNumber" type="text" name="Plate Number">
+    <br><br>
+    <button (click)="VerifyAllowedDrive()">Show me if I'm allowed to drive in the city center</button>
+</form>
+<br>
+<ng-container *ngIf="response === 'Allowed to drive in the city center';else second"><h2>CONGRATULATIONS, you can take your car!!</h2></ng-container>
+<ng-template #second>
+    <ng-container *ngIf="response === 'NOT allowed to drive in the city center';else third"><h2>I'M SORRY, you can't take your car!!</h2></ng-container>
+</ng-template>
+<ng-template #third></ng-template>
